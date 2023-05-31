@@ -1,6 +1,21 @@
 package br.dev.tiagogomes.eventoapp.models;
 
-public class Evento {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+import java.io.Serializable;
+
+@Entity
+public class Evento implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long codigo;
 
     private String nome;
     private String local;
@@ -48,4 +63,13 @@ public class Evento {
     public void setHorario(String horario) {
         this.horario = horario;
     }
+
+    public long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(long codigo) {
+        this.codigo = codigo;
+    }
+
 }

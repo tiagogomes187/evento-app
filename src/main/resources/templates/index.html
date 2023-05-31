@@ -1,37 +1,48 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Index Controller</title>
+    <title>Lista de Eventos</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+<h1>Lista de Eventos</h1>
+<h3><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i
+        class="material-icons left">add_circle_outline</i>Cadastrar Evento</a></h3>
 
-<header>
-    <p style="margin-bottom: 0%;">--</p>
-    <table style="border-style: none; margin-bottom: 0%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
-        <tr>
-            <td style="border-style: none;"><img src="https://raw.githubusercontent.com/missmissbr/fotos/main/logo_missmiss.png" alt="Miss-Miss Calçados" style="width: 120px;"></td>
-            <td style="padding: 15px; border-style: none;">
-                <H3
-                        style="margin-bottom: 0%; margin-top: 0%; color: #1E90FF;">
-                    TIAGO GOMES</H3>
-                <h6 style="margin-top: 0%; margin-bottom: 0%; color: rgb(124, 116, 116);">Administração</h6>
-                <span style="color: rgb(55, 108, 253); font-size: smaller;"><strong> E-mail:
-                        </strong>tiago@missmisscalcados.com.br</span><br>
-                <span style="color: rgb(55, 108, 253); font-size: smaller;"><strong> WhatsApp: </strong>+55 11
-                        2651-2221</span><br>
-                <span style="color: rgb(55, 108, 253); font-size: smaller;"><strong> Telefone: </strong>+55 11
-                        2651-2221 - Ramal: 209</span>
-                <p style="margin-top: 0%; margin-bottom: 0%; font-size: x-small;"><a href="https://www.missmisscalcados.com.br" target="_blank" style="text-decoration-line: none; margin: 0%;color: rgb(124, 116, 116);">www.missmisscalcados.com.br</a></p>
-            </td>
-            <td style="border-style: none;"><img src="https://raw.githubusercontent.com/missmissbr/fotos/main/Logo_50anos.png" alt="Beira Rio 50 anos" width="120px"></td>
-        </tr>
-    </table>
+<table class="container">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Local</th>
+        <th>Data</th>
+        <th>Horario</th>
+    </tr>
+    </thead>
 
-</header>
+    <tbody>
 
+    <tr th:each="evento : ${eventos}">
+
+        <td><span th:text="${evento.nome}"></span></td>
+        <td><span th:text="${evento.local}"></span></td>
+        <td><span th:text="${evento.data}"></span></td>
+        <td><span th:text="${evento.horario}"></span></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 </html>
